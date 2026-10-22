@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="10조 니체 쇼츠 화이트라벨 라이선스 - 완전 자동화된 유튜브 쇼츠 제작 파이프라인. 대본 JSON만 넣으면 1080x1920 쇼츠 영상이 나옵니다.">
+    <title>10조 니체 쇼츠 화이트라벨 라이선스 | 20,000원</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --fg: #f0f0f5;
+            --muted: #888899;
+            --accent: #ff6b35;
+            --accent-hover: #e85d2d;
+            --card: #14141f;
+            --border: #2a2a3a;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Pretendard', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        header { text-align: center; padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+        h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
+        .price { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; color: var(--accent); }
+        .subtitle { color: var(--muted); margin-top: 0.5rem; font-size: 1.1rem; }
+        section { margin-bottom: 2.5rem; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+        .card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent); }
+        ul { margin-left: 1.2rem; }
+        li { margin-bottom: 0.4rem; color: var(--muted); }
+        li strong { color: var(--fg); }
+        .video-wrapper { position: relative; width: 100%; aspect-ratio: 9/16; max-width: 400px; margin: 1rem auto; border-radius: 16px; overflow: hidden; background: #000; border: 2px solid var(--border); }
+        .video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .btn { display: inline-block; padding: 1rem 2rem; background: var(--accent); color: #fff; font-weight: 700; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; font-size: 1.1rem; transition: background 0.2s; width: 100%; max-width: 400px; text-align: center; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn:disabled { background: #444; cursor: not-allowed; }
+        .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .payment-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .payment-card h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1.1rem; }
+        .info-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: var(--muted); white-space: nowrap; }
+        .info-value { font-family: monospace; background: var(--bg); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem; text-align: right; }
+        .warning { background: rgba(255,107,53,0.1); border: 1px solid var(--accent); border-radius: 8px; padding: 1rem; margin-top: 1rem; color: var(--accent); font-size: 0.95rem; }
+        pre { background: var(--bg); padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; color: #ccc; }
+        .footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            header { padding: 2rem 0 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">화이트라벨 라이선스 · 당일 납품</span>
+            <h1>10조 니체 쇼츠<br>완전 자동화 파이프라인</h1>
+            <div class="price">&#8361;20,000</div>
+            <p class="subtitle">대본 JSON만 넣으면 1080&times;1920 쇼츠 영상이 나옵니다 &mdash; 니체 9편 완성 대본 포함</p>
+        </header>
+
+        <section>
+            <h2>패키지 구성</h2>
+            <div class="card">
+                <h3>포함 사항 (27개 파일, 18.9MB)</h3>
+                <ul>
+                    <li><strong>scripts/make_short.py</strong> &mdash; 메인 파이프라인 (대본 &rarr; 최종 MP4)</li>
+                    <li><strong>scripts/gen_image.py</strong> &mdash; AI 이미지 생성 (Gemini &rarr; Pollinations 폴백)</li>
+                    <li><strong>prompts/</strong> &mdash; 니체 철학 9편 완성 대본 JSON (12개 파일)</li>
+                    <li><strong>assets/music/</strong> &mdash; 배경음악 3종 (앰비언트, 상업적 이용 무료)</li>
+                    <li><strong>assets/fonts/</strong> &mdash; 자막용 폰트 5종 (맑은 고딕, Pretendard, Noto Sans KR)</li>
+                    <li><strong>config/.env.template</strong> &mdash; 환경 변수 템플릿</li>
+                    <li><strong>LICENSE</strong> &mdash; MIT + 화이트라벨 부가 조건 (상업적 이용&middot;수정&middot;재판매 무제한)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>데모 영상</h2>
+            <div class="video-wrapper">
+                <video controls playsinline preload="metadata" poster="assets/poster.jpg">
+                    <source src="assets/demo.mp4" type="video/mp4">
+                    브라우저가 video 태그를 지원하지 않습니다.
+                </video>
+            </div>
+            <p style="text-align:center; color:var(--muted); font-size:0.9rem;">
+                위 영상은 실제 파이프라인으로 생성된 니체 쇼츠 1편입니다 (26.7초, 1080&times;1920, 30fps, 자막+내레이션+BGM)
+            </p>
+        </section>
+
+        <section>
+            <h2>구매 안내</h2>
+            <div class="card">
+                <h3>결제 방법: 계좌 직접 이체 (수수료 0원, 즉시 확인)</h3>
+                <div class="payment-grid">
+                    <div class="payment-card">
+                        <h4>은행 계좌</h4>
+                        <div class="info-row"><span class="info-label">은행</span><span class="info-value">[은행명 &mdash; 대표 확인 필요]</span></div>
+                        <div class="info-row"><span class="info-label">계좌번호</span><span class="info-value">[계좌번호 &mdash; 대표 확인 필요]</span></div>
+                        <div class="info-row"><span class="info-label">예금주</span><span class="info-value">[예금주명 &mdash; 대표 확인 필요]</span></div>
+                    </div>
+                    <div class="payment-card">
+                        <h4>카카오페이 (선택)</h4>
+                        <div class="info-row"><span class="info-label">연락처</span><span class="info-value">[연락처 &mdash; 대표 확인 필요]</span></div>
+                        <div class="info-row"><span class="info-label">방식</span><span class="info-value">송금 링크 발송</span></div>
+                    </div>
+                </div>
+                <div class="warning">
+                    &#9888;&#65039; 위 계좌 정보는 자리표시자입니다. 구매 확정 시 10조 대표 채널을 통해 개별 안내됩니다.<br>
+                    입금 확인 즉시 <code>deliver_order.py</code> 자동 실행 &rarr; 30분~6시간 내 완성본 전달
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>다운로드</h2>
+            <div class="card">
+                <h3>white_label_license.zip (18.9MB)</h3>
+                <p style="color:var(--muted); margin-bottom:1rem;">구매 확정 &rarr; 입금 확인 후 다운로드 링크가 활성화됩니다.</p>
+                <button class="btn" id="downloadBtn" disabled>입금 확인 후 다운로드 가능</button>
+                <p style="margin-top:1rem; font-size:0.85rem; color:var(--muted);">
+                    구성: Python 파이프라인 2종 + 니체 대본 12종 + 에셋(음악3/폰트5) + 라이선스 + 문서
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>빠른 시작 (구매 후)</h2>
+            <div class="card">
+                <pre># 1. 의존성 설치
+python -m venv .venv
+.venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+
+# 2. 필수 도구: FFmpeg 설치
+winget install Gyan.FFmpeg
+
+# 3. 환경 변수 설정 (선택 키만)
+cp config/.env.template config/.env
+
+# 4. 첫 영상 만들기
+python scripts/make_short.py prompts/nietzsche_god_is_dead.json</pre>
+                <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--muted);">
+                    API 키가 없어도 동작합니다 (Pexels 키 없음 &rarr; Openverse 무료 사진, Gemini 키 없음 &rarr; Pollinations 무료 생성)
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>니체 9편 대본 목록</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>신은 죽었다</strong> &mdash; 무신론 아님, 기준 붕괴, 초인</li>
+                    <li><strong>영원 회귀</strong> &mdash; 삶을 무한히 반복한다면, 사고실험</li>
+                    <li><strong>인생 3단계</strong> &mdash; 낙타&rarr;사자&rarr;아이, 정신 진화</li>
+                    <li><strong>아모르 파티</strong> &mdash; 운명을 사랑하라, 고통 수용</li>
+                    <li><strong>나를 죽이지 못한 건 날 강하게 만든다</strong> &mdash; 시련 극복</li>
+                    <li><strong>타인의 시선에서 벗어나는 법</strong> &mdash; 자유, 주체성, 노예 도덕</li>
+                    <li><strong>당신의 가치는 당신이 정한다</strong> &mdash; 자존감, 자기 결정권</li>
+                    <li><strong>고독: 위대한 자는 혼자 걷는다</strong> &mdash; 고독의 가치</li>
+                    <li><strong>힘에의 의지</strong> &mdash; 삶의 근본 에너지, 자기 초월</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>라이선스 요약</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>상업적 이용</strong> &mdash; 무제한</li>
+                    <li><strong>수정&middot;파생작</strong> &mdash; 무제한</li>
+                    <li><strong>배포&middot;재판매</strong> &mdash; 무제한 (원저작자 표기 유지)</li>
+                    <li><strong>브랜드 제거(화이트라벨)</strong> &mdash; 자유</li>
+                    <li><strong>기술 지원</strong> &mdash; 별도 계약</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>문의 및 구매</h2>
+            <div class="card">
+                <p style="color:var(--muted); margin-bottom:1rem;">구매 문의 및 계좌 안내 요청은 아래 채널로 연락주세요:</p>
+                <p><strong>10조 비상위원회 수석 B (상품/제작)</strong></p>
+                <p style="color:var(--muted); margin-top:0.5rem;">패키지 버전: 1.0.0 (2026-10-22) | 기반: <code>make_short.py</code> 파이프라인 검증 완료 (니체 쇼츠 제작 이력)</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 10조 비상위원회 &mdash; MIT License + 화이트라벨 부가 조건</p>
+            <p style="margin-top:0.5rem;">본 패키지는 10조 공식 채널을 통해 구매한 정품 구매자에게만 제공됩니다.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            alert('구매 확정 후 입금 확인 시 다운로드 링크가 제공됩니다.\n문의: 10조 공식 채널');
+        });
+    </script>
+</body>
+</html>
